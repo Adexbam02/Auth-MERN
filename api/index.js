@@ -1,7 +1,18 @@
-import React from 'react'
+const express = require('express')
+const mongoose = require('mongoose')
+const dotenv = require('dotenv')
+dotenv.config()
+const app = express()
 
-export const index = () => {
-  return (
-    <div>index</div>
-  )
-}
+mongoose.connect(process.env.MONGO_DB1)
+    .then(() => {
+        console.log(`Connected to database`)
+    })
+    .catch((err) => {
+        console.log(err)
+    })
+
+
+app.listen(3000, () => {
+    console.log('Server running already')
+})
