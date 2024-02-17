@@ -4,9 +4,11 @@ const dotenv = require('dotenv')
 dotenv.config()
 const app = express()
 const userRoute = require('./routes/userRoute.js')
-// app.use(express.json())
+const authRoute = require('./routes/authRoute.js')
+app.use(express.json())
 
 app.use('/api/user', userRoute)
+app.use('/api/auth', authRoute)
 
 
 
